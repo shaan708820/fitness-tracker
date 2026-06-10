@@ -9,7 +9,7 @@
     app_port: 5000
     mongodb_port: 27017
     namespace: fitness-tracker
-    github_repo: https://github.com/pulkitsrivastava/fitness-tracker.git
+    github_repo: https://github.com/shaan708820/fitness-tracker.git
     mongodb_version: "7.0-jammy"
  
   tasks:
@@ -55,7 +55,7 @@
       git:
         repo: "{{ github_repo }}"
         dest: /opt/{{ app_name }}
-        version: master
+        version: main
         force: yes
       become_user: "{{ ansible_user }}"
  
