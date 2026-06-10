@@ -1,0 +1,9 @@
+app:
+  replicaCount: 2
+  image:
+    repository: mshaan/fitness-tracker
+    tag: prod
+
+database:
+  username: prod-ops-admin
+  password: enterpriseSecurePassword456

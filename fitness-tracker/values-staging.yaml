@@ -1,0 +1,9 @@
+app:
+  replicaCount: 1
+  image:
+    repository: mshaan/fitness-tracker
+    tag: latest
+
+database:
+  username: staging-admin
+  password: stagingPassword789

@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fitness-app-deployment
+spec:
+  replicas: {{ .Values.app.replicaCount }}
+  selector:
+    matchLabels:
+      app: fitness-app
+  template:
+    metadata:
+      labels:
+        app: fitness-app
+    spec:
+      containers:
+      - name: fitness-app
+        image: "{{ .Values.app.image.repository }}:{{ .Values.app.image.tag }}"
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: fitness-config
+        - secretRef:
+            name: fitness-secrets
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fitness-app-service
+spec:
+  type: ClusterIP
+  selector:
+    app: fitness-app
+  ports:
+  - port: 80
+    targetPort: 8080
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: fitness-app-route
+spec:
+  parentRefs:
+  - name: fitness-gateway
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    backendRefs:
+    - name: fitness-app-service
+      port: 80
