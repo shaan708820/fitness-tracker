@@ -6,7 +6,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = "mshaan/fitness_tracker"
         DOCKER_TAG   = "${BUILD_NUMBER}"
-        EKS_CLUSTER_NAME = "pulkit-cluster"
+        EKS_CLUSTER_NAME = "shaan-cluster"
         AWS_REGION = "us-east-1"
     }
     stages {
