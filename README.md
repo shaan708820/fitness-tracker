@@ -1,4 +1,4 @@
-# FitTrack Pro - Professional Fitness Tracker
+# FitTrack Pro - Professional Fitness Tracker by shaan
 
 <div align="center">
   <img src="./public/assets/logo.png" alt="FitTrack Pro Logo" width="120" height="120">
