@@ -4,7 +4,7 @@ pipeline {
         githubPush()
     }
     environment {
-        DOCKER_IMAGE = "pulkit197/fitness_tracker-master-copy3-fitness-app"
+        DOCKER_IMAGE = "mshaan/fitness_tracker"
         DOCKER_TAG   = "${BUILD_NUMBER}"
         EKS_CLUSTER_NAME = "pulkit-cluster"
         AWS_REGION = "us-east-1"
