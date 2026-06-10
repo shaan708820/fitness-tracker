@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fitness-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fitness-app
+  template:
+    metadata:
+      labels:
+        app: fitness-app
+    spec:
+      containers:
+      - name: fitness-app
+        image: mshaan/fitness-tracker:prod
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: fitness-config
+        - secretRef:
+            name: fitness-secrets
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fitness-app-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: fitness-app
+  ports:
+  - port: 80
+    targetPort: 8080
