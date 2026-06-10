@@ -4,7 +4,7 @@
   become: yes
   vars:
     app_name: fitness-tracker
-    docker_image: pulkit197/fitness-tracker
+    docker_image: mshaan/fitness-tracker
     docker_tag: latest
     app_port: 5000
     mongodb_port: 27017
