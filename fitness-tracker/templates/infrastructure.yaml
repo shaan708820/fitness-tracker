@@ -26,6 +26,8 @@ metadata:
 data:
   MONGO_HOST: "mongodb-service"
   PORT: "8080"
+  MONGO_URI: "mongodb://prod-ops-admin:enterpriseSecurePassword456@mongodb-service:27017/fitness-tracker?authSource=admin"
+  MONGODB_URI: "mongodb://prod-ops-admin:enterpriseSecurePassword456@mongodb-service:27017/fitness-tracker?authSource=admin"
 ---
 apiVersion: v1
 kind: Secret
