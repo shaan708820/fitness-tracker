@@ -28,7 +28,7 @@ kind: Service
 metadata:
   name: fitness-app-service
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: fitness-app
   ports:
