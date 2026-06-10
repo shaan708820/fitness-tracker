@@ -13,8 +13,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 git credentialsId: 'github_credentials',
-                    branch: 'master',
-                    url: 'https://github.com/Pulkitsriv/Fitness_Tra.git'
+                    branch: 'main',
+                    url: 'https://github.com/shaan708820/fitness-tracker.git'
             }
         }
 
