@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fitness-app-deployment
+  labels:
+    tags.datadoghq.com/env: "production"
+    tags.datadoghq.com/service: "fitness-tracker"
+    tags.datadoghq.com/version: "1.0.0"
 spec:
   replicas: {{ .Values.app.replicaCount }}
   selector:
@@ -11,12 +15,23 @@ spec:
     metadata:
       labels:
         app: fitness-app
+        tags.datadoghq.com/env: "production"
+        tags.datadoghq.com/service: "fitness-tracker"
+        tags.datadoghq.com/version: "1.0.0"
     spec:
       containers:
       - name: fitness-app
         image: "{{ .Values.app.image.repository }}:{{ .Values.app.image.tag }}"
         ports:
         - containerPort: 8080
+        env:
+        # Crucial for routing APM traces from the container to the local node's Datadog agent
+        - name: DD_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        - name: DD_LOGS_INJECTION
+          value: "true"
         envFrom:
         - configMapRef:
             name: fitness-config
