@@ -34,7 +34,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-username/fitness-tracker.git"
+    "url": "git+https://github.com/shaan708820/fitness-tracker.git"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -43,9 +43,9 @@
     "nodemon": "^3.0.1"
   },
   "bugs": {
-    "url": "https://github.com/your-username/fitness-tracker/issues"
+    "url": "https://github.com/shaan708820/fitness-tracker/issues"
   },
-  "homepage": "https://github.com/your-username/fitness-tracker#readme",
+  "homepage": "https://github.com/shaan708820/fitness-tracker#readme",
   "dependencies": {
     "anymatch": "^3.1.3",
     "balanced-match": "^1.0.2",
